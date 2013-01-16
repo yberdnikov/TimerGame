@@ -7,7 +7,7 @@
 //
 
 #import "TimerGameViewController.h"
-
+#import <AudioToolbox/AudioServices.h>
 @interface TimerGameViewController ()
 
 @end
@@ -18,8 +18,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    [_timeLabel setText:@"Press Start"];
-    
+    [_timeLabel setText:@"Start"];
+    [_shareButton setAlpha:0.0];
     totalScore = 1.00;
     totalStreak = 0;
     running=false;
@@ -63,6 +63,8 @@
 }
 
 - (IBAction)startTimer:(UIButton *)sender {
+    [_scoreLabel setBackgroundColor:[UIColor colorWithRed:242.0/255.0 green:105.0/255.0 blue:127.0/255.0 alpha:1.0]];
+    
     if (running==false) {
         running=true;
         timeWhenStartPushed = [NSDate date];
@@ -70,25 +72,60 @@
         [self updateTime];
         [_scoreLabel setText:[NSString stringWithFormat:@"%.2fs",totalScore]];
     } else {
-        [sender setTitle:@"START" forState:UIControlStateNormal];
+        [sender setTitle:@"GO" forState:UIControlStateNormal];
         timeWhenStopPushed = [NSDate date];
         accumulativeTimeElapsed += [timeWhenStopPushed timeIntervalSinceDate:timeWhenStartPushed];
         NSLog(@"cumulativetimeelapsed is %f",accumulativeTimeElapsed);
         totalStreak += 1;
         [_streakLabel setText:[NSString stringWithFormat:@"%d",totalStreak]];
-        if (dateDifference>0) {
-            totalScore -= dateDifference;
-        } else if (dateDifference<0) {
+        UILabel *scoreDrop = [[UILabel alloc]initWithFrame:CGRectMake(180.0, 80.0, 120.0, 120.0)];
+        [scoreDrop setBackgroundColor:[UIColor clearColor]];
+        [scoreDrop setTextColor:[UIColor redColor]];
+        [scoreDrop setText:[NSString stringWithFormat:@"-%.2f",dateDifference]];
+        [[self view]addSubview:scoreDrop];
+        
+        
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:0.5];
+        [UIView setAnimationDelay:0.0];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+        [scoreDrop setFrame:CGRectMake(180.0, 240.0, 120.0, 120.0)];
+        [scoreDrop setAlpha:0.0];
+        if (dateDifference<0) {
             totalScore += dateDifference;
+            [UIView commitAnimations];
+            
+            
+        }  else if (dateDifference>0) {
+            totalScore -= dateDifference;
+            [UIView commitAnimations];
         } else {
             NSLog(@"EXACTLY on!");
             superStreak = superStreak+1;
+            AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+            [scoreDrop setText:@"+1.0"];
+            [scoreDrop setFont:[UIFont boldSystemFontOfSize:34.0]];
+            [scoreDrop setTextColor:[UIColor greenColor]];
+            
+            [_scoreLabel setBackgroundColor:[UIColor colorWithRed:160.0/255.0 green:218.0/255.0 blue:169.0/255.0 alpha:1.0]];
+            totalScore += 1.0;
+            
+            
+            
+            
+            
         }
         
         [_scoreLabel setText:[NSString stringWithFormat:@"%.2fs",totalScore]];
         
         if (totalScore<=0) {
-            [sender setTitle:@"RESTART" forState:UIControlStateNormal];
+            [sender setTitle:@"PLAY AGAIN" forState:UIControlStateNormal];
+            
+            
+                        [_shareButton setAlpha:1.0];
+            
+            [UIView commitAnimations];
+            
             NSLog(@"ran out of score");
             accumulativeTimeElapsed = 0;
             totalScore = 1.00;
@@ -98,5 +135,15 @@
         
         running = false;
     }
+}
+- (IBAction)shareScore:(id)sender {
+    NSLog(@"SHARE BUTTON TAPPED");
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.5];
+    [UIView setAnimationDelay:0.0];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+
+    [_shareButton setAlpha:0.0];
+    [UIView commitAnimations];
 }
 @end

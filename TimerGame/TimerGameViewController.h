@@ -22,9 +22,10 @@
     int totalStreak;
     int superStreak;
 }
+@property (weak, nonatomic) IBOutlet UIButton *shareButton;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 - (IBAction)startTimer:(UIButton *)sender;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *streakLabel;
-
+- (IBAction)shareScore:(id)sender;
 @end

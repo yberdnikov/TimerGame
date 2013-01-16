@@ -18,6 +18,7 @@
 		34BFB58616A6259D00133BAF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 34BFB58516A6259D00133BAF /* Default-568h@2x.png */; };
 		34BFB58916A6259D00133BAF /* TimerGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34BFB58816A6259D00133BAF /* TimerGameViewController.m */; };
 		34BFB58C16A6259D00133BAF /* TimerGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34BFB58A16A6259D00133BAF /* TimerGameViewController.xib */; };
+		34BFB59316A65DE600133BAF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34BFB59216A65DE600133BAF /* AudioToolbox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		34BFB58716A6259D00133BAF /* TimerGameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimerGameViewController.h; sourceTree = "<group>"; };
 		34BFB58816A6259D00133BAF /* TimerGameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimerGameViewController.m; sourceTree = "<group>"; };
 		34BFB58B16A6259D00133BAF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TimerGameViewController.xib; sourceTree = "<group>"; };
+		34BFB59216A65DE600133BAF /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34BFB59316A65DE600133BAF /* AudioToolbox.framework in Frameworks */,
 				34BFB57016A6259D00133BAF /* UIKit.framework in Frameworks */,
 				34BFB57216A6259D00133BAF /* Foundation.framework in Frameworks */,
 				34BFB57416A6259D00133BAF /* CoreGraphics.framework in Frameworks */,
@@ -56,6 +59,7 @@
 		34BFB56016A6259D00133BAF = {
 			isa = PBXGroup;
 			children = (
+				34BFB59216A65DE600133BAF /* AudioToolbox.framework */,
 				34BFB57516A6259D00133BAF /* TimerGame */,
 				34BFB56E16A6259D00133BAF /* Frameworks */,
 				34BFB56C16A6259D00133BAF /* Products */,
