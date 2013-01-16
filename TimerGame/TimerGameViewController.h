@@ -9,5 +9,14 @@
 #import <UIKit/UIKit.h>
 
 @interface TimerGameViewController : UIViewController
+{
+    bool running;
+    NSDate *timeWhenStartPushed;
+    NSDate *timeWhenStopPushed;
+    double accumulativeTimeElapsed;
+    
+}
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+- (IBAction)startTimer:(UIButton *)sender;
 
 @end
