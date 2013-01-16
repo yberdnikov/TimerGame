@@ -19,6 +19,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     [_timeLabel setText:@"Press Start"];
+    
     totalScore = 1.00;
     totalStreak = 0;
     running=false;
@@ -47,15 +48,15 @@
     
     dateToBeDisplayed = [currentTime timeIntervalSinceDate:timeWhenStartPushed]+accumulativeTimeElapsed;
     
-    dateRounded = round(dateToBeDisplayed*1000)/1000;
+    dateRounded = round(dateToBeDisplayed*100)/100;
     dateToTheSecond = round(dateToBeDisplayed);
-    dateDifference = round((dateRounded-dateToTheSecond)*1000)/1000;
+    dateDifference = round((dateRounded-dateToTheSecond)*100)/100;
     NSLog(@"dateround is %f",dateRounded);
     NSLog(@"datetothe second is %f",dateToTheSecond);
     NSLog(@"datdifference is %f",dateDifference);
     
     NSLog(@"datetobedislayed is %f",dateToBeDisplayed);
-    [_timeLabel setText:[NSString stringWithFormat:@"%.3f",dateRounded]];
+    [_timeLabel setText:[NSString stringWithFormat:@"%.2f",dateRounded]];
    
     [self performSelector:@selector(updateTime) withObject:self afterDelay:0.01];
     
@@ -67,7 +68,7 @@
         timeWhenStartPushed = [NSDate date];
         [sender setTitle:@"STOP" forState:UIControlStateNormal];
         [self updateTime];
-        [_scoreLabel setText:[NSString stringWithFormat:@"%.2f",totalScore]];
+        [_scoreLabel setText:[NSString stringWithFormat:@"%.2fs",totalScore]];
     } else {
         [sender setTitle:@"START" forState:UIControlStateNormal];
         timeWhenStopPushed = [NSDate date];
@@ -80,11 +81,11 @@
         } else if (dateDifference<0) {
             totalScore += dateDifference;
         } else {
-            NSLog(@"EXACTKTY on!");
+            NSLog(@"EXACTLY on!");
             superStreak = superStreak+1;
         }
         
-        [_scoreLabel setText:[NSString stringWithFormat:@"%.2f",totalScore]];
+        [_scoreLabel setText:[NSString stringWithFormat:@"%.2fs",totalScore]];
         
         if (totalScore<=0) {
             [sender setTitle:@"RESTART" forState:UIControlStateNormal];
