@@ -1,0 +1,4 @@
+html,body{margin:0 0 0 0;padding:0 0 0 0;font-family:Helvetica;}
+#timer{font-weight:800;font-size:86px;background-color:#3fc6fd;color:#004980;height:70%;padding-top:15%;width:100%;text-align:center;margin:0 0 0 0;position:absolute;}
+.value{color:#26ade4;}
+#below{width:40%;font-weight:100;letter-spacing:1px;line-height:1.5;padding-top:8%;background-color:#004980;color:#3fc6fd;position:absolute;top:70%;height:30%;padding-left:30%;padding-right:30%;}

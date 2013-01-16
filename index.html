@@ -1,1 +1,33 @@
-My Git Page
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="styles.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js" type="text/javascript"></script>
+<link href='http://fonts.googleapis.com/css?family=Raleway:400,900' rel='stylesheet' type='text/css'>
+<script>
+$(document).ready(function() {
+
+    setInterval(updateDisplay, 100); // every millisecond call updateDisplay
+
+
+function updateDisplay(){
+      var value = parseInt($('#timer').find('.value').text(), 10);
+    
+    
+    value++;
+     $('#timer').find('.value').text(value);
+    
+}
+});
+</script>
+<title></title>
+<style>
+</style>
+</head>
+
+<body>
+<div id="timer">MyNewApp<br/><span class="value">0</span></div>
+<div id="below">My new app is a brilliant, simple game for the iPhone and iPod Touch.<br/> The aim is to stop the clock on the second, and you lose points based on how far away from the second you are.</div>
+</body>
+
+</html>
