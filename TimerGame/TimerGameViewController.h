@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <AudioToolbox/AudioServices.h>
+#import <Social/Social.h>
 @interface TimerGameViewController : UIViewController
 {
     bool running;
@@ -21,6 +22,7 @@
     float totalScore;
     int totalStreak;
     int superStreak;
+    int totalAfterStreak;
 }
 @property (weak, nonatomic) IBOutlet UIButton *shareButton;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;

@@ -7,7 +7,7 @@
 //
 
 #import "TimerGameViewController.h"
-#import <AudioToolbox/AudioServices.h>
+
 @interface TimerGameViewController ()
 
 @end
@@ -18,7 +18,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    [_timeLabel setText:@"Start"];
+    [_timeLabel setText:@"0.00"];
     [_shareButton setAlpha:0.0];
     totalScore = 1.00;
     totalStreak = 0;
@@ -63,6 +63,13 @@
 }
 
 - (IBAction)startTimer:(UIButton *)sender {
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.5];
+    [UIView setAnimationDelay:0.0];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+    
+    [_shareButton setAlpha:0.0];
+    [UIView commitAnimations];
     [_scoreLabel setBackgroundColor:[UIColor colorWithRed:242.0/255.0 green:105.0/255.0 blue:127.0/255.0 alpha:1.0]];
     
     if (running==false) {
@@ -71,6 +78,7 @@
         [sender setTitle:@"STOP" forState:UIControlStateNormal];
         [self updateTime];
         [_scoreLabel setText:[NSString stringWithFormat:@"%.2fs",totalScore]];
+        [_streakLabel setText:[NSString stringWithFormat:@"%d",totalStreak]];
     } else {
         [sender setTitle:@"GO" forState:UIControlStateNormal];
         timeWhenStopPushed = [NSDate date];
@@ -81,22 +89,24 @@
         UILabel *scoreDrop = [[UILabel alloc]initWithFrame:CGRectMake(180.0, 80.0, 120.0, 120.0)];
         [scoreDrop setBackgroundColor:[UIColor clearColor]];
         [scoreDrop setTextColor:[UIColor redColor]];
-        [scoreDrop setText:[NSString stringWithFormat:@"-%.2f",dateDifference]];
+        
         [[self view]addSubview:scoreDrop];
         
         
         [UIView beginAnimations:nil context:nil];
-        [UIView setAnimationDuration:0.5];
+        [UIView setAnimationDuration:1.0];
         [UIView setAnimationDelay:0.0];
         [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
         [scoreDrop setFrame:CGRectMake(180.0, 240.0, 120.0, 120.0)];
         [scoreDrop setAlpha:0.0];
         if (dateDifference<0) {
             totalScore += dateDifference;
+            [scoreDrop setText:[NSString stringWithFormat:@"%.2f",dateDifference]];
             [UIView commitAnimations];
             
             
         }  else if (dateDifference>0) {
+            [scoreDrop setText:[NSString stringWithFormat:@"-%.2f",dateDifference]];
             totalScore -= dateDifference;
             [UIView commitAnimations];
         } else {
@@ -109,26 +119,49 @@
             
             [_scoreLabel setBackgroundColor:[UIColor colorWithRed:160.0/255.0 green:218.0/255.0 blue:169.0/255.0 alpha:1.0]];
             totalScore += 1.0;
-            
-            
-            
-            
-            
-        }
+          }
         
         [_scoreLabel setText:[NSString stringWithFormat:@"%.2fs",totalScore]];
         
         if (totalScore<=0) {
             [sender setTitle:@"PLAY AGAIN" forState:UIControlStateNormal];
+            [UIView beginAnimations:nil context:nil];
+            [UIView setAnimationDuration:0.5];
+            [UIView setAnimationDelay:0.0];
+            [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+            
+
+            
+            [_shareButton setAlpha:1.0];
+            
+            if (totalStreak>14) {
+                [sender setTitle:@"Great" forState:UIControlStateNormal];
+                
+            } else if (totalStreak>9) {
+                [sender setTitle:@"Good Work" forState:UIControlStateNormal];
+            } else if (totalStreak > 19) {
+                [sender setTitle:@"Awesome" forState:UIControlStateNormal];
+            } else if (totalStreak > 24) {
+                [sender setTitle:@"Amazing" forState:UIControlStateNormal];
+            } else if (totalStreak > 29) {
+                [sender setTitle:@"Okay" forState:UIControlStateNormal];
+            } else {
+                [sender setTitle:@"Play Again" forState:UIControlStateNormal];
+            }
             
             
-                        [_shareButton setAlpha:1.0];
+            
             
             [UIView commitAnimations];
+            
+            
+            
+            
             
             NSLog(@"ran out of score");
             accumulativeTimeElapsed = 0;
             totalScore = 1.00;
+            totalAfterStreak = totalStreak;
             totalStreak = 0;
             
         }
@@ -145,5 +178,19 @@
 
     [_shareButton setAlpha:0.0];
     [UIView commitAnimations];
+    
+    NSString *someText = [NSString stringWithFormat:@"I got a score of %d on <<NAME>>. Get it on the app store <<LINK>>",totalAfterStreak];
+    
+    
+    
+    NSArray *dataToShare = @[someText];
+    
+    NSLog(@"send post called");
+    
+    
+    UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:dataToShare applicationActivities:nil];
+    [self presentViewController:activityController animated:YES completion:nil];
+    totalStreak = 0;
+    
 }
 @end
