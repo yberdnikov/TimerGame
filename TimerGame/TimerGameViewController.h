@@ -11,12 +11,20 @@
 @interface TimerGameViewController : UIViewController
 {
     bool running;
+    double accumulativeTimeElapsed;
+    double dateRounded;
+    double dateToTheSecond;
+    double dateDifference;
     NSDate *timeWhenStartPushed;
     NSDate *timeWhenStopPushed;
-    double accumulativeTimeElapsed;
-    
+    NSTimeInterval dateToBeDisplayed;
+    float totalScore;
+    int totalStreak;
+    int superStreak;
 }
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 - (IBAction)startTimer:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+@property (weak, nonatomic) IBOutlet UILabel *streakLabel;
 
 @end
