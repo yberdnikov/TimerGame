@@ -1,1 +1,2 @@
-iOS Timer App Work in Progress
+This is an iOS game.
+Created by Matthew Palmer.
