@@ -67,7 +67,7 @@
     [UIView setAnimationDuration:0.5];
     [UIView setAnimationDelay:0.0];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
-    
+    [sender setTitle:@"GO" forState:UIControlStateNormal];
     [_shareButton setAlpha:0.0];
     [UIView commitAnimations];
     [_scoreLabel setBackgroundColor:[UIColor colorWithRed:242.0/255.0 green:105.0/255.0 blue:127.0/255.0 alpha:1.0]];
@@ -80,7 +80,7 @@
         [_scoreLabel setText:[NSString stringWithFormat:@"%.2fs",totalScore]];
         [_streakLabel setText:[NSString stringWithFormat:@"%d",totalStreak]];
     } else {
-        [sender setTitle:@"GO" forState:UIControlStateNormal];
+        
         timeWhenStopPushed = [NSDate date];
         accumulativeTimeElapsed += [timeWhenStopPushed timeIntervalSinceDate:timeWhenStartPushed];
         NSLog(@"cumulativetimeelapsed is %f",accumulativeTimeElapsed);
@@ -124,21 +124,20 @@
         [_scoreLabel setText:[NSString stringWithFormat:@"%.2fs",totalScore]];
         
         if (totalScore<=0) {
-            [sender setTitle:@"PLAY AGAIN" forState:UIControlStateNormal];
+            [sender setTitle:@"Play Again" forState:UIControlStateNormal];
             [UIView beginAnimations:nil context:nil];
-            [UIView setAnimationDuration:0.5];
+            [UIView setAnimationDuration:0.02];
             [UIView setAnimationDelay:0.0];
             [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
-            
-
-            
+            [sender setTitle:@"PLAY AGAIN" forState:UIControlStateNormal];
             [_shareButton setAlpha:1.0];
-            
+            /*
             if (totalStreak>14) {
                 [sender setTitle:@"Great" forState:UIControlStateNormal];
                 
             } else if (totalStreak>9) {
                 [sender setTitle:@"Good Work" forState:UIControlStateNormal];
+                
             } else if (totalStreak > 19) {
                 [sender setTitle:@"Awesome" forState:UIControlStateNormal];
             } else if (totalStreak > 24) {
@@ -147,12 +146,9 @@
                 [sender setTitle:@"Okay" forState:UIControlStateNormal];
             } else {
                 [sender setTitle:@"Play Again" forState:UIControlStateNormal];
-            }
-            
-            
-            
-            
+            }*/
             [UIView commitAnimations];
+            
             
             
             
