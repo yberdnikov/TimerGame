@@ -320,7 +320,7 @@
 -(IBAction)closeMyView:(id)sender
 {
     NSLog(@"%@",[sender superview]);
-    
+    [addScoreTextField resignFirstResponder];
     [UIView animateWithDuration:0.3
                      animations:^ {
                          [[sender superview] setAlpha:0.0];
