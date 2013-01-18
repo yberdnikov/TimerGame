@@ -18,8 +18,14 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
+    [testObject setObject:@"bar" forKey:@"foo"];
+    [testObject save];
+    
     [_timeLabel setText:@"0.00"];
     [_shareButton setAlpha:0.0];
+    //[_highScoreButton setAlpha:0.0];
     totalScore = 1.00;
     totalStreak = 0;
     running=false;
@@ -130,28 +136,18 @@
             [UIView setAnimationDelay:0.0];
             [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
             [sender setTitle:@"PLAY AGAIN" forState:UIControlStateNormal];
-            [_shareButton setAlpha:1.0];
-            /*
-            if (totalStreak>14) {
-                [sender setTitle:@"Great" forState:UIControlStateNormal];
-                
-            } else if (totalStreak>9) {
-                [sender setTitle:@"Good Work" forState:UIControlStateNormal];
-                
-            } else if (totalStreak > 19) {
-                [sender setTitle:@"Awesome" forState:UIControlStateNormal];
-            } else if (totalStreak > 24) {
-                [sender setTitle:@"Amazing" forState:UIControlStateNormal];
-            } else if (totalStreak > 29) {
-                [sender setTitle:@"Okay" forState:UIControlStateNormal];
-            } else {
-                [sender setTitle:@"Play Again" forState:UIControlStateNormal];
-            }*/
+            //[_shareButton setAlpha:1.0];
+            
             [UIView commitAnimations];
             
             
             
-            
+            [UIView animateWithDuration:1.0
+                             animations:^ {
+                                 [_shareButton setAlpha:1.0];
+                                 [_highScoreButton setAlpha:1.0];
+                             }
+             ];
             
             
             NSLog(@"ran out of score");
@@ -189,4 +185,76 @@
     totalStreak = 0;
     
 }
+-(void)highScores
+{
+    
+}
+
+- (IBAction)goHighScores:(id)sender {
+    NSLog(@"HIGH scORE Tapped");
+    CGRect screenBounds = [[UIScreen mainScreen] bounds];
+    
+    UIView *highScoreView = [[UIView alloc]initWithFrame:screenBounds];
+    [highScoreView setBackgroundColor:[UIColor blackColor]];
+    [highScoreView setAlpha:0.0];
+    
+    UILabel *highScoreLabel = [[UILabel alloc]initWithFrame:CGRectMake(100, 100, 80, 30)];
+    [highScoreLabel setText:[NSString stringWithFormat:@"%d",totalAfterStreak]];
+    [highScoreLabel setTextColor:[UIColor greenColor]];
+    [highScoreLabel setBackgroundColor:[UIColor clearColor]];
+    
+    UITextField *addScoreTextField = [[UITextField alloc]initWithFrame:CGRectMake(20.0, 20.0, 220.0, 30.0)];
+    [addScoreTextField setPlaceholder:@"Your Name"];
+    [addScoreTextField setBackgroundColor:[UIColor colorWithRed:220.0/255.0 green:218.0/255.0 blue:219.0/255.0 alpha:1.0]];
+    [addScoreTextField setTextColor:[UIColor blueColor]];
+    [addScoreTextField setDelegate:self];
+    
+    UIButton *saveMyScoreButton = [[UIButton alloc]initWithFrame:CGRectMake(120.0, 120.0, 60.0, 40.0)];
+    [saveMyScoreButton setTitle:@"Save" forState:UIControlStateNormal];
+    [saveMyScoreButton addTarget:self action:@selector(saveScore:) forControlEvents:UIControlEventTouchUpInside];
+    
+    UIButton *removeHighScoresButton = [[UIButton alloc]initWithFrame:CGRectMake(200.0, 200.0, 140.0, 59.0)];
+    [removeHighScoresButton setTitle:@"Close" forState:UIControlStateNormal];
+    [removeHighScoresButton setBackgroundColor:[UIColor whiteColor]];
+    [removeHighScoresButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [removeHighScoresButton setUserInteractionEnabled:YES];
+    [removeHighScoresButton addTarget:self action:@selector(closeMyView:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [highScoreView addSubview:highScoreLabel];
+    [highScoreView addSubview:saveMyScoreButton];
+    [highScoreView addSubview:removeHighScoresButton];
+    [highScoreView addSubview:addScoreTextField];
+    //setBackgroundColor:[UIColor colorWithRed:160.0/255.0 green:218.0/255.0 blue:169.0/255.0 alpha:1.0]];
+    //setBackgroundColor:[UIColor colorWithRed:242.0/255.0 green:105.0/255.0 blue:127.0/255.0 alpha:1.0]];
+    
+    [[self view]addSubview:highScoreView];
+    [UIView animateWithDuration:1.0
+                     animations:^ {
+                         [highScoreView setAlpha:1.0];
+                     }
+     ];
+}
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
+-(IBAction)closeMyView:(id)sender
+{
+    NSLog(@"%@",[sender superview]);
+    
+    [UIView animateWithDuration:1.0
+                     animations:^ {
+                         [[sender superview] setAlpha:0.0];
+                         //[[sender superview]removeFromSuperview];
+                     }
+     ];
+    
+    
+}
+-(IBAction)saveScore:(id)sender
+{
+    NSLog(@"PRESESEDED");
+    [self closeMyView:sender];
+}
+
 @end

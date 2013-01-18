@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <AudioToolbox/AudioServices.h>
 #import <Social/Social.h>
-@interface TimerGameViewController : UIViewController
+#import <Parse/Parse.h>
+@interface TimerGameViewController : UIViewController <UITextFieldDelegate>
 {
     bool running;
     double accumulativeTimeElapsed;
@@ -30,4 +31,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *streakLabel;
 - (IBAction)shareScore:(id)sender;
+-(void)highScores;
+- (IBAction)goHighScores:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *highScoreButton;
 @end
