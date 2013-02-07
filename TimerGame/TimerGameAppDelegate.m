@@ -9,7 +9,7 @@
 #import "TimerGameAppDelegate.h"
 #import <Parse/Parse.h>
 #import "TimerGameViewController.h"
-
+#import <Crashlytics/Crashlytics.h>
 @implementation TimerGameAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -18,6 +18,7 @@
     // Override point for customization after application launch.
     [Parse setApplicationId:@"eEJugQdj0uXCKJ0ar3YEnK5VLOPkqqquVDAvWgkZ"
                   clientKey:@"n0kUP35DkjJXxs8lQSNCkNp6BWmUFqqB8gIuLOQs"];
+    [Crashlytics startWithAPIKey:@"fa7be0281dd292bb1ebe46cd38f473b465aaaf62"];
     self.viewController = [[TimerGameViewController alloc] initWithNibName:@"TimerGameViewController" bundle:nil];
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];

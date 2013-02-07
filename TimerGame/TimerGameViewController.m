@@ -7,7 +7,7 @@
 //
 
 #import "TimerGameViewController.h"
-
+#import <Crashlytics/Crashlytics.h>
 @interface TimerGameViewController ()
 
 @end
@@ -220,7 +220,7 @@
 }
 
 - (IBAction)goHighScores:(id)sender {
-    
+    //[[Crashlytics sharedInstance] crash];
     
     NSLog(@"HIGH scORE Tapped");
     CGRect screenBounds = [[UIScreen mainScreen] bounds];
@@ -315,6 +315,7 @@
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
     [textField setText:@""];
+    
     return YES;
 }
 -(IBAction)closeMyView:(id)sender

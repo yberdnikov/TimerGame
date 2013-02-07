@@ -19,6 +19,7 @@
 		34375D4C16A9145F0007F556 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34375D4B16A9145F0007F556 /* Security.framework */; };
 		34375D4E16A914670007F556 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34375D4D16A914670007F556 /* StoreKit.framework */; };
 		34375D5016A9146E0007F556 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34375D4F16A9146E0007F556 /* SystemConfiguration.framework */; };
+		346E23F416AA196A00FD3E78 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 346E23F316AA196A00FD3E78 /* Crashlytics.framework */; };
 		34BFB57016A6259D00133BAF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34BFB56F16A6259D00133BAF /* UIKit.framework */; };
 		34BFB57216A6259D00133BAF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34BFB57116A6259D00133BAF /* Foundation.framework */; };
 		34BFB57416A6259D00133BAF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34BFB57316A6259D00133BAF /* CoreGraphics.framework */; };
@@ -47,6 +48,7 @@
 		34375D4B16A9145F0007F556 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		34375D4D16A914670007F556 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		34375D4F16A9146E0007F556 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		346E23F316AA196A00FD3E78 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		34BFB56B16A6259D00133BAF /* TimerGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimerGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34BFB56F16A6259D00133BAF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		34BFB57116A6259D00133BAF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -89,6 +91,7 @@
 				34BFB57016A6259D00133BAF /* UIKit.framework in Frameworks */,
 				34BFB57216A6259D00133BAF /* Foundation.framework in Frameworks */,
 				34375D3016A913900007F556 /* Parse.framework in Frameworks */,
+				346E23F416AA196A00FD3E78 /* Crashlytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,6 +118,7 @@
 		34BFB56E16A6259D00133BAF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				346E23F316AA196A00FD3E78 /* Crashlytics.framework */,
 				34375D4F16A9146E0007F556 /* SystemConfiguration.framework */,
 				34375D4D16A914670007F556 /* StoreKit.framework */,
 				34375D4B16A9145F0007F556 /* Security.framework */,
@@ -173,6 +177,7 @@
 				34BFB56716A6259D00133BAF /* Sources */,
 				34BFB56816A6259D00133BAF /* Frameworks */,
 				34BFB56916A6259D00133BAF /* Resources */,
+				346E23F116AA193600FD3E78 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -224,6 +229,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		346E23F116AA193600FD3E78 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Crashlytics.framework/run fa7be0281dd292bb1ebe46cd38f473b465aaaf62";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		34BFB56716A6259D00133BAF /* Sources */ = {
