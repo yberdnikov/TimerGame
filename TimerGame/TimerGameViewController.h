@@ -10,6 +10,7 @@
 #import <AudioToolbox/AudioServices.h>
 #import <Social/Social.h>
 #import <Parse/Parse.h>
+#import "GSSystem.h"
 
 @interface TimerGameViewController : UIViewController <UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
 {
@@ -43,6 +44,8 @@
 
 @property (strong, nonatomic) NSMutableArray *arrayOfScores;
 @property (strong, nonatomic) NSMutableArray *arrayOfNames;
+
+@property (strong, nonatomic) GSSystem *mainGS;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;

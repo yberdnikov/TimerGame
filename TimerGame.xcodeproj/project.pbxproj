@@ -19,7 +19,6 @@
 		34375D4C16A9145F0007F556 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34375D4B16A9145F0007F556 /* Security.framework */; };
 		34375D4E16A914670007F556 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34375D4D16A914670007F556 /* StoreKit.framework */; };
 		34375D5016A9146E0007F556 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34375D4F16A9146E0007F556 /* SystemConfiguration.framework */; };
-		346E23F416AA196A00FD3E78 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 346E23F316AA196A00FD3E78 /* Crashlytics.framework */; };
 		34BFB57016A6259D00133BAF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34BFB56F16A6259D00133BAF /* UIKit.framework */; };
 		34BFB57216A6259D00133BAF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34BFB57116A6259D00133BAF /* Foundation.framework */; };
 		34BFB57416A6259D00133BAF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34BFB57316A6259D00133BAF /* CoreGraphics.framework */; };
@@ -30,9 +29,11 @@
 		34BFB58416A6259D00133BAF /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 34BFB58316A6259D00133BAF /* Default@2x.png */; };
 		34BFB58616A6259D00133BAF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 34BFB58516A6259D00133BAF /* Default-568h@2x.png */; };
 		34BFB58916A6259D00133BAF /* TimerGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34BFB58816A6259D00133BAF /* TimerGameViewController.m */; };
-		34BFB58C16A6259D00133BAF /* TimerGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34BFB58A16A6259D00133BAF /* TimerGameViewController.xib */; };
+		34BFB58C16A6259D00133BAF /* TimerGameViewController-iPhone5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34BFB58A16A6259D00133BAF /* TimerGameViewController-iPhone5.xib */; };
 		34BFB59316A65DE600133BAF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34BFB59216A65DE600133BAF /* AudioToolbox.framework */; };
 		34BFB59916A6686A00133BAF /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34BFB59816A6686A00133BAF /* Social.framework */; };
+		34E0246D1762E84E00D3D534 /* GSSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 34E0246C1762E84E00D3D534 /* GSSystem.m */; };
+		34E024731762F56200D3D534 /* TimerGameViewController-iPhone4.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34E024721762F56200D3D534 /* TimerGameViewController-iPhone4.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,7 +49,6 @@
 		34375D4B16A9145F0007F556 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		34375D4D16A914670007F556 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		34375D4F16A9146E0007F556 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		346E23F316AA196A00FD3E78 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		34BFB56B16A6259D00133BAF /* TimerGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimerGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34BFB56F16A6259D00133BAF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		34BFB57116A6259D00133BAF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -64,9 +64,12 @@
 		34BFB58516A6259D00133BAF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		34BFB58716A6259D00133BAF /* TimerGameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimerGameViewController.h; sourceTree = "<group>"; };
 		34BFB58816A6259D00133BAF /* TimerGameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimerGameViewController.m; sourceTree = "<group>"; };
-		34BFB58B16A6259D00133BAF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TimerGameViewController.xib; sourceTree = "<group>"; };
+		34BFB58B16A6259D00133BAF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = "en.lproj/TimerGameViewController-iPhone5.xib"; sourceTree = "<group>"; };
 		34BFB59216A65DE600133BAF /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		34BFB59816A6686A00133BAF /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		34E0246B1762E84E00D3D534 /* GSSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSSystem.h; sourceTree = "<group>"; };
+		34E0246C1762E84E00D3D534 /* GSSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSSystem.m; sourceTree = "<group>"; };
+		34E024721762F56200D3D534 /* TimerGameViewController-iPhone4.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "TimerGameViewController-iPhone4.xib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +94,6 @@
 				34BFB57016A6259D00133BAF /* UIKit.framework in Frameworks */,
 				34BFB57216A6259D00133BAF /* Foundation.framework in Frameworks */,
 				34375D3016A913900007F556 /* Parse.framework in Frameworks */,
-				346E23F416AA196A00FD3E78 /* Crashlytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,7 +120,6 @@
 		34BFB56E16A6259D00133BAF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				346E23F316AA196A00FD3E78 /* Crashlytics.framework */,
 				34375D4F16A9146E0007F556 /* SystemConfiguration.framework */,
 				34375D4D16A914670007F556 /* StoreKit.framework */,
 				34375D4B16A9145F0007F556 /* Security.framework */,
@@ -147,7 +148,10 @@
 				34BFB57F16A6259D00133BAF /* TimerGameAppDelegate.m */,
 				34BFB58716A6259D00133BAF /* TimerGameViewController.h */,
 				34BFB58816A6259D00133BAF /* TimerGameViewController.m */,
-				34BFB58A16A6259D00133BAF /* TimerGameViewController.xib */,
+				34E024721762F56200D3D534 /* TimerGameViewController-iPhone4.xib */,
+				34BFB58A16A6259D00133BAF /* TimerGameViewController-iPhone5.xib */,
+				34E0246B1762E84E00D3D534 /* GSSystem.h */,
+				34E0246C1762E84E00D3D534 /* GSSystem.m */,
 				34BFB57616A6259D00133BAF /* Supporting Files */,
 			);
 			path = TimerGame;
@@ -224,7 +228,8 @@
 				34BFB58216A6259D00133BAF /* Default.png in Resources */,
 				34BFB58416A6259D00133BAF /* Default@2x.png in Resources */,
 				34BFB58616A6259D00133BAF /* Default-568h@2x.png in Resources */,
-				34BFB58C16A6259D00133BAF /* TimerGameViewController.xib in Resources */,
+				34BFB58C16A6259D00133BAF /* TimerGameViewController-iPhone5.xib in Resources */,
+				34E024731762F56200D3D534 /* TimerGameViewController-iPhone4.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +259,7 @@
 				34BFB57C16A6259D00133BAF /* main.m in Sources */,
 				34BFB58016A6259D00133BAF /* TimerGameAppDelegate.m in Sources */,
 				34BFB58916A6259D00133BAF /* TimerGameViewController.m in Sources */,
+				34E0246D1762E84E00D3D534 /* GSSystem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,12 +274,12 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		34BFB58A16A6259D00133BAF /* TimerGameViewController.xib */ = {
+		34BFB58A16A6259D00133BAF /* TimerGameViewController-iPhone5.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				34BFB58B16A6259D00133BAF /* en */,
 			);
-			name = TimerGameViewController.xib;
+			name = "TimerGameViewController-iPhone5.xib";
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

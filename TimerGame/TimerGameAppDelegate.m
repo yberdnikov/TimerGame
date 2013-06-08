@@ -9,20 +9,41 @@
 #import "TimerGameAppDelegate.h"
 #import <Parse/Parse.h>
 #import "TimerGameViewController.h"
-#import <Crashlytics/Crashlytics.h>
+//#import <Crashlytics/Crashlytics.h>
 @implementation TimerGameAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    CGSize result = [[UIScreen mainScreen] bounds].size;
+    CGFloat scale = [UIScreen mainScreen].scale;
+    result = CGSizeMake(result.width * scale, result.height * scale);
+    
     // Override point for customization after application launch.
     [Parse setApplicationId:@"eEJugQdj0uXCKJ0ar3YEnK5VLOPkqqquVDAvWgkZ"
                   clientKey:@"n0kUP35DkjJXxs8lQSNCkNp6BWmUFqqB8gIuLOQs"];
-    [Crashlytics startWithAPIKey:@"fa7be0281dd292bb1ebe46cd38f473b465aaaf62"];
-    self.viewController = [[TimerGameViewController alloc] initWithNibName:@"TimerGameViewController" bundle:nil];
-    self.window.rootViewController = self.viewController;
-    [self.window makeKeyAndVisible];
-    return YES;
+    //[Crashlytics startWithAPIKey:@"fa7be0281dd292bb1ebe46cd38f473b465aaaf62"];
+    
+    if(result.height == 1136){
+        NSLog(@"iPhone5");
+        //storyBoard = [UIStoryboard storyboardWithName:@"MainStoryboard_iPhone5" bundle:nil];
+        //UIViewController *initViewController = [storyBoard instantiateInitialViewController];
+        //[self.window setRootViewController:initViewController];
+        self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
+        self.viewController = [[TimerGameViewController alloc] initWithNibName:@"TimerGameViewController-iPhone5" bundle:nil];
+        [self.window setRootViewController:self.viewController];
+        [self.window makeKeyAndVisible];
+        return YES;
+    }
+    else {
+        NSLog(@"iPhone with 3.5 inch");
+        self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
+        self.viewController = [[TimerGameViewController alloc] initWithNibName:@"TimerGameViewController-iPhone4" bundle:nil];
+        [self.window setRootViewController:self.viewController];
+        [self.window makeKeyAndVisible];
+        return YES;
+    }
+    
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

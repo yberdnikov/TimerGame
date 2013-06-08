@@ -4,20 +4,16 @@
    version = "1.0">
    <FileBreakpoints>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "TimerGame/TimerGameViewController.m"
-         timestampString = "380190600.01494"
+         timestampString = "392357742.667534"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "183"
-         endingLineNumber = "183"
-<<<<<<< HEAD
-         landmarkName = "-shareScore:"
-=======
-         landmarkName = "-startTimer:"
->>>>>>> addingParse
+         startingLineNumber = "86"
+         endingLineNumber = "86"
+         landmarkName = "-updateTime"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -25,17 +21,13 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "TimerGame/TimerGameViewController.m"
-         timestampString = "380194062.094425"
+         timestampString = "392357752.325657"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "289"
-<<<<<<< HEAD
-         endingLineNumber = "289">
-=======
-         endingLineNumber = "289"
-         landmarkName = "-goHighScores:"
+         startingLineNumber = "111"
+         endingLineNumber = "111"
+         landmarkName = "-startTimer:"
          landmarkType = "5">
->>>>>>> addingParse
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

@@ -7,7 +7,6 @@
 //
 
 #import "TimerGameViewController.h"
-#import <Crashlytics/Crashlytics.h>
 @interface TimerGameViewController ()
 
 @end
@@ -17,6 +16,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //Set up the view proportions using grid system
+    _mainGS = [[GSSystem alloc]init];
+    [_mainGS createPoints:[self view]];
+    [_timeLabel setFrame:CGRectMake(20.0, 20.0, [_mainGS twelveTwelfthsLeft], [_mainGS fiveTwelfthsTop])];
+    
+    
 	// Do any additional setup after loading the view, typically from a nib.
     
  /*   PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
@@ -220,7 +226,7 @@
 }
 
 - (IBAction)goHighScores:(id)sender {
-    //[[Crashlytics sharedInstance] crash];
+//[[Crashlytics sharedInstance] crash];
     
     NSLog(@"HIGH scORE Tapped");
     CGRect screenBounds = [[UIScreen mainScreen] bounds];
